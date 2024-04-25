@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson№1</title>
+</head>
+<body style="width: 50%; margin-left: 37%; background-color: beige;
+font-family: sans-serif">
+    <h1 style="margin-bottom: 5px">Звичайний Калькулятор</h1>
+    <form>
+		<input type="text" id="value1" placeholder="Число 1">
+		<select id="operator">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+		</select>
+		<input type="text" id="value2" placeholder="Число 2">
+		<button type="button" onclick="calculate()">Calculate</button>
+		<p id="Result"></p>
+	</form>
+
+	<script>
+		function calculate() {
+			var value1 = parseFloat(document.getElementById("value1").value);
+			var value2 = parseFloat(document.getElementById("value2").value);
+			var operator = document.getElementById("operator").value;
+			var result;
+
+			switch(operator) {
+				case '+':
+					result = value1 + value2;
+					break;
+				case '-':
+					result = value1 - value2;
+					break;
+				case '*':
+					result = value1 * value2;
+					break;
+				case '/':
+					if (value2 == 0) {
+						result = "Error: Ділення на 0";
+					} else {
+						result = value1 / value2;
+					}
+					break;
+			}
+
+			document.getElementById("Result").innerHTML = "Відповідь: " + result;
+		}
+	</script> 
+</body>
+</html>
